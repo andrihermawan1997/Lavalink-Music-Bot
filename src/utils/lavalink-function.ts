@@ -6,20 +6,20 @@ import load from "lodash";
 export async function button(client: DiscordClient, guild: string) {
     const player = client.manager?.players.get(guild);
     const skip = new MessageButton()
-    .setLabel(`⏭ Next`)
+    .setLabel(`⏭`)
     .setStyle('PRIMARY')
     .setDisabled(!player?.playing)
     .setCustomId(`${client.user?.id}-btn-next`)
     const pauseButton = new MessageButton()
-    .setLabel(`⏯ Pause/Resume`)
+    .setLabel(`⏯`)
     .setStyle(`PRIMARY`)
     .setCustomId(`${client.user?.id}-btn-pause`)
     const stopButton = new MessageButton()
-    .setLabel('⏹️ Stop')
+    .setLabel('⏹️')
     .setStyle("DANGER")
     .setCustomId(`${client.user?.id}-btn-leave`);
     const repeatButton = new MessageButton()
-    .setLabel("🔂 Repeat Queue")
+    .setLabel("🔂")
     .setDisabled(!player?.playing)
     .setStyle("PRIMARY")
     .setCustomId(`${client.user?.id}-btn-controls`);
@@ -31,16 +31,16 @@ export async function button(client: DiscordClient, guild: string) {
         repeatButton
     );
     const queueButton = new MessageButton()
-    .setLabel("📜 Queue")
+    .setLabel("📜")
     .setStyle("PRIMARY")
     .setCustomId(`${client.user?.id}-btn-queue`);
     const mixButton = new MessageButton()
-    .setLabel("🎛️ Shuffle")
+    .setLabel("🎛️")
     .setDisabled(!player?.playing)
     .setStyle("PRIMARY")
     .setCustomId(`${client.user?.id}-btn-mix`);
     const controlsButton = new MessageButton()
-    .setLabel("🔂 Repeat Track")
+    .setLabel("🔂")
     .setStyle("PRIMARY")
     .setDisabled(!player?.playing)
     .setCustomId(`${client.user?.id}-btn-repeat`);
@@ -207,7 +207,7 @@ export function generateEmbed(client: DiscordClient, guildId: string, leave?: bo
         new MessageEmbed()
         .setColor("RED")
         .setTitle(`No music playing here.`)
-        .setImage("https://cdn.discordapp.com/attachments/908816744414597140/908883618640826398/coollogo_com-17982242.png")
+        .setImage("https://cdn.discordapp.com/attachments/908816744414597140/908817161689129020/0d9c648b23dc8ba34d076d6ac43d8045.png")
         .setFooter({ text: client.user?.tag as string, iconURL: guild.iconURL({ dynamic: true}) as string})
     ]
 
@@ -306,7 +306,7 @@ export function generateSetup(message: Message, client: DiscordClient) {
         new MessageEmbed()
         .setColor("RED")
         .setTitle(`No music playing here.`)
-        .setImage("https://cdn.discordapp.com/attachments/908816744414597140/908883618640826398/coollogo_com-17982242.png")
+        .setImage("https://cdn.discordapp.com/attachments/908816744414597140/908817161689129020/0d9c648b23dc8ba34d076d6ac43d8045.png")
         .setFooter({ text: client.user?.tag as string, iconURL: message.guild?.iconURL({ dynamic: true}) as string })
     ]
     
