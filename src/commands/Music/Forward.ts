@@ -19,7 +19,7 @@ export default class ForwardCommand extends Command {
         const channel = message.member?.voice.channel;
         if (!channel) {
             const embed = new MessageEmbed()
-            .setColor("RED")
+            .setColor("WHITE")
             .setAuthor({ name: "❌ Error | Voice Channel" })
             .setDescription("You're not in voice channel, make sure you join voice channel in somewhere")
             message.channel.send({ embeds: [embed] });
@@ -28,7 +28,7 @@ export default class ForwardCommand extends Command {
 
         if (!args[0]) {
             const embed = new MessageEmbed()
-            .setColor("RED")
+            .setColor("WHITE")
             .setAuthor("❌ Error | Missing Permissions")
             .setDescription("Please input the number<seconds> to forward the music")
             message.channel.send({ embeds: [embed] });
@@ -39,7 +39,7 @@ export default class ForwardCommand extends Command {
 
         if (!player) {
             const embed = new MessageEmbed()
-            .setColor("RED")
+            .setColor("WHITE")
             .setAuthor("❌ Erro | No Player")
             .setDescription("There is no music playing here, make sure ther some music in queue so i can run this action.")
             message.channel.send({ embeds: [embed] });
@@ -55,7 +55,7 @@ export default class ForwardCommand extends Command {
         player.seek(seektime);
 
         const embed = new MessageEmbed()
-        .setColor("GREEN")
+        .setColor("WHITE")
         .setAuthor("✅ Successful | Seeking current music")
         .setDescription(`I've seek the music to [\`${convertTime(player.position)}\`]`)
         message.channel.send({ embeds: [embed] });

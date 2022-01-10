@@ -17,7 +17,7 @@ export default class Volume extends Command {
         const channel = message.member?.voice.channel;
         if (!channel) {
             const embed = new MessageEmbed()
-            .setColor("RED")
+            .setColor("WHITE")
             .setAuthor({ name: "❌ Error | Voice Channel" })
             .setDescription("You're not in voice channel, make sure you join voice channel in somewhere")
             message.channel.send({ embeds: [embed] });

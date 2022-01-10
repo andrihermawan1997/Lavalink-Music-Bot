@@ -18,7 +18,7 @@ export default class RestartCommand extends Command {
         const channel = message.member?.voice.channel;
         if (!channel) {
             const embed = new MessageEmbed()
-            .setColor("RED")
+            .setColor("WHITE")
             .setAuthor({ name: "❌ Error | Voice Channel" })
             .setDescription("You're not in voice channel, make sure you join voice channel in somewhere")
             message.channel.send({ embeds: [embed] });
@@ -29,7 +29,7 @@ export default class RestartCommand extends Command {
 
         if (!player) {
             const embed = new MessageEmbed()
-            .setColor("RED")
+            .setColor("WHITE")
             .setAuthor("❌ Erro | No Player")
             .setDescription("There is no music playing here, make sure ther some music in queue so i can run this action.")
             message.channel.send({ embeds: [embed] });

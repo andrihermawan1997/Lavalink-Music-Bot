@@ -21,7 +21,7 @@ export default class Play extends Command {
         const channel = message.member?.voice.channel;
         if (!channel) {
             const embed = new MessageEmbed()
-            .setColor("RED")
+            .setColor("WHITE")
             .setAuthor({ name: "❌ Error | Voice Channel" })
             .setDescription("You're not in voice channel, make sure you join voice channel in somewhere")
             message.channel.send({ embeds: [embed] });
@@ -56,7 +56,7 @@ export default class Play extends Command {
                     if (!player?.playing && !player?.paused && player?.queue.totalSize === search.tracks.length)
                     player.play();
                     const embed = new MessageEmbed()
-                    .setColor("RED")
+                    .setColor("WHITE")
                     .setTimestamp()
                     .setDescription(`**Added Playlist to queue** [${search.playlistInfo.name}](${songName}) - [\`${search.tracks.length}\`]`);
                     message.channel.send({ embeds: [embed] });
@@ -66,13 +66,13 @@ export default class Play extends Command {
                     if (!player?.playing && !player?.paused && !player?.queue.size)
                     player?.play();
                     const embed = new MessageEmbed()
-                    .setColor("RED")
+                    .setColor("WHITE")
                     .setTimestamp()
                     .setDescription(`**Added to queue** - [${search.tracks[0].info.title}](${search.tracks[0].info.uri})`)
                     message.channel.send({ embeds: [embed] });
                     return;
                 } else {
-                    message.channel.send({ embeds: [new MessageEmbed().setColor('RED').setTimestamp().setDescription('there were no results found.')]});
+                    message.channel.send({ embeds: [new MessageEmbed().setColor('WHITE').setTimestamp().setDescription('there were no results found.')]});
                     return;
                 }
             } else {
@@ -104,7 +104,7 @@ export default class Play extends Command {
                         player?.queue.add(track);
                         if (!player?.playing && !player?.paused && !player?.queue.length) player?.play();
                             const embed = new MessageEmbed()
-                            .setColor('RED')
+                            .setColor('WHITE')
                             .setTimestamp()
                             .setThumbnail(track.displayThumbnail("hqdefault"))
                             .setDescription(`**Added Songs to queue**\n[${track.title}](${track.uri}) - \`${convertTime(track.duration)}\``);
@@ -118,7 +118,7 @@ export default class Play extends Command {
                         player?.queue.add(res.tracks);
                         if (!player?.playing && !player?.paused && player?.queue.totalSize === res.tracks.length) player.play();
                         const embed = new MessageEmbed()
-                        .setColor('RED')
+                        .setColor('WHITE')
                         .setTimestamp()
                         .setDescription(`**Added Playlist to queue**\n${res.tracks.length} Songs **${res.playlist?.name}** - \`[${convertTime(res.playlist?.duration as number)}]\``);
                         const m = await message.channel.send({ embeds: [embed] });
@@ -132,7 +132,7 @@ export default class Play extends Command {
                         player?.queue.add(track);
                         if (!player?.playing && !player?.paused && !player?.queue.length) player?.play();
                             const embed = new MessageEmbed()
-                            .setColor('RED')
+                            .setColor('WHITE')
                             .setTimestamp()
                             .setThumbnail(track.displayThumbnail("hqdefault"))
                             .setDescription(`**Added Songs to queue**\n[${track.title}](${track.uri}) - \`${convertTime(track.duration)}\``);

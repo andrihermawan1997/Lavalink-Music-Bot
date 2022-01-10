@@ -17,7 +17,7 @@ export default class JoinCommand extends Command {
         const channel = message.member?.voice.channel;
         if (!channel) {
             const embed = new MessageEmbed()
-            .setColor("RED")
+            .setColor("WHITE")
             .setAuthor({ name: "❌ Error | Voice Channel" })
             .setDescription("You're not in voice channel, make sure you join voice channel in somewhere")
             message.channel.send({ embeds: [embed] });
@@ -27,7 +27,7 @@ export default class JoinCommand extends Command {
         let player = this.client.manager.players.get(message.guildId as string);
         if (player) {
             const embed = new MessageEmbed()
-            .setColor("RED")
+            .setColor("WHITE")
             .setAuthor("❌ Error | Voice Channel")
             .setDescription(`Hey ${message.author}, I'm already in voice channal, you can join in the same voice channel as me in <#${player.voiceChannel}>`)
             message.channel.send({ embeds: [embed] });
@@ -52,7 +52,7 @@ export default class JoinCommand extends Command {
             return;
         } else {
             const embed = new MessageEmbed()
-            .setColor("RED")
+            .setColor("WHITE")
             .setAuthor("❌ Error | Voice Channel")
             .setDescription(`Hey ${message.author}, I'm already in voice channal, you can join in the same voice channel as me in <#${player.voiceChannel}>`)
             message.channel.send({ embeds: [embed] });

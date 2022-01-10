@@ -17,7 +17,7 @@ export default class Filter extends Command {
         const channel = message.member?.voice.channel;
         if (!channel) {
             const embed = new MessageEmbed()
-            .setColor("RED")
+            .setColor("WHITE")
             .setAuthor({ name: "❌ Error | Voice Channel" })
             .setDescription("You're not in voice channel, make sure you join voice channel in somewhere")
             message.channel.send({ embeds: [embed] });
@@ -28,7 +28,7 @@ export default class Filter extends Command {
         if (!player) return message.channel.send(`There is no music playing at this server!`);
 
         const thing = new MessageEmbed()
-        .setColor(`GREEN`)
+        .setColor(`WHITE`)
         .setTimestamp()
 
         if (args[0] == 'party') {
