@@ -41,8 +41,8 @@ export default class TrackStart extends Lava {
                         const channel = this.client.channels.cache.get(player.textChannel as string) as TextBasedChannel;
                         const embed = new MessageEmbed()
                         .setDescription(`**Playing**\n [${track.title}](${track.uri}) - \`[${convertTime(track.duration)}]\` [${track.requester}]`)
-                        .addField(`Volume: \`${player.volume}\`%`, true)
-                        .addField(`Queue size: \`${player.queue.size}\``, true)
+                        .addField(`Volume: \`${player.volume}\`%`)
+                        .addField(`Queue size: \`${player.queue.size}\``)
                         .setTimestamp()
                         .setImage(track.displayThumbnail("hqdefault") || "https://cdn.discordapp.com/attachments/891235330735366164/891387071376269342/amelia_corp.png")
                         .setColor('WHITE')
