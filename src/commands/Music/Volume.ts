@@ -33,6 +33,9 @@ export default class Volume extends Command {
         if (!player) return message.channel.send(`There is no music play at this server!`);
         player?.setVolume(vol);
 
-        return message.channel.send(`Volume set to: \`${vol}\`%`)
+        return message.channel.send({ embeds: {
+            color: "WHITE",
+            description: `Volume set to: \`${vol}\`%`
+        }})
     }
 }
