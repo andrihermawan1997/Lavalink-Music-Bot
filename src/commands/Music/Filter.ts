@@ -18,7 +18,7 @@ export default class Filter extends Command {
         if (!args[0]) {
             const embed = new MessageEmbed()
             .setColor("WHITE")
-            .setDescription("\` 1. \` **party**\n\` 2. \` **bass**\n\` 3. \` **radio**\n\` 4. \` **pop**\n\` 5. \` **trablebass**\n\` 6. \` **soft**\n\` 7. \` **custom**\n\` 8. \`**Off**\n\nUsage: h,filter bass")
+            .setDescription("\` 1. \` **Party**\n\` 2. \` **Bass**\n\` 3. \` **Radio**\n\` 4. \` **Pop**\n\` 5. \` **Trablebass**\n\` 6. \` **Soft**\n\` 7. \` **Custom**\n\` 8. \`**Off**\n\nUsage: h,filter bass")
             .setFooter("")
             message.channel.send({ embeds: [embed] });
             return;
