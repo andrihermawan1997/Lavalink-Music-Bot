@@ -30,7 +30,7 @@ export default class MusicHandler {
         const userChannel = message.member?.voice.channel;
         if (!userChannel) {
             message.reply({ embeds: [{
-                color: "RED",
+                color: "WHITE",
                 title: "❌ Error | Voice Channel",
                 description: "You're not join in voice channel, make sure you join to voice channel first to use this feature."
             }]}).then(m => setTimeout(() => m.delete(), 2e3));
@@ -41,7 +41,7 @@ export default class MusicHandler {
 
         if (player && userChannel?.id !== player.voiceChannel) 
             message.reply({ embeds: [{
-                color: "RED",
+                color: "WHITE",
                 title: "❌ Error | Voice Channel",
                 description: `You must join the same voice channel as me before request a message at ${userChannel}`
             }]}).then(m => setTimeout(() => m.delete(), 2e3));
@@ -81,7 +81,7 @@ export default class MusicHandler {
                         if (!player?.playing && !player?.paused && player?.queue.totalSize === search.tracks.length)
                         player.play();
                         const embed = new MessageEmbed()
-                        .setColor("RED")
+                        .setColor("WHITE")
                         .setTimestamp()
                         .setDescription(`**Added Playlist to queue** [${search.playlistInfo.name}](${songName}) - [\`${search.tracks.length}\`]`);
                         message.channel.send({ embeds: [embed] });
@@ -91,13 +91,13 @@ export default class MusicHandler {
                         if (!player?.playing && !player?.paused && !player?.queue.size)
                         player?.play();
                         const embed = new MessageEmbed()
-                        .setColor("RED")
+                        .setColor("WHITE")
                         .setTimestamp()
                         .setDescription(`**Added to queue** - [${search.tracks[0].info.title}](${search.tracks[0].info.uri})`)
                         message.channel.send({ embeds: [embed] });
                         return;
                     } else {
-                        message.channel.send({ embeds: [new MessageEmbed().setColor('RED').setTimestamp().setDescription('there were no results found.')]});
+                        message.channel.send({ embeds: [new MessageEmbed().setColor('WHITE').setTimestamp().setDescription('there were no results found.')]});
                         return;
                     }
                 } else {
@@ -129,7 +129,7 @@ export default class MusicHandler {
                             player?.queue.add(track);
                             if (!player?.playing && !player?.paused && !player?.queue.length) player?.play();
                                 const embed = new MessageEmbed()
-                                .setColor('RED')
+                                .setColor('WHITE')
                                 .setTimestamp()
                                 .setThumbnail(track.displayThumbnail("hqdefault"))
                                 .setDescription(`**Added Songs to queue**\n[${track.title}](${track.uri}) - \`${convertTime(track.duration)}\``);
@@ -143,7 +143,7 @@ export default class MusicHandler {
                             player?.queue.add(res.tracks);
                             if (!player?.playing && !player?.paused && player?.queue.totalSize === res.tracks.length) player.play();
                             const embed = new MessageEmbed()
-                            .setColor('RED')
+                            .setColor('WHITE')
                             .setTimestamp()
                             .setDescription(`**Added Playlist to queue**\n${res.tracks.length} Songs **${res.playlist?.name}** - \`[${convertTime(res.playlist?.duration as number)}]\``);
                             const m = await message.channel.send({ embeds: [embed] });
@@ -157,7 +157,7 @@ export default class MusicHandler {
                             player?.queue.add(track);
                             if (!player?.playing && !player?.paused && !player?.queue.length) player?.play();
                                 const embed = new MessageEmbed()
-                                .setColor('RED')
+                                .setColor('WHITE')
                                 .setTimestamp()
                                 .setThumbnail(track.displayThumbnail("hqdefault"))
                                 .setDescription(`**Added Songs to queue**\n[${track.title}](${track.uri}) - \`${convertTime(track.duration)}\``);
@@ -203,7 +203,7 @@ export default class MusicHandler {
         if (!member.voice.channel) {
             interaction.reply({
                 embeds: [{
-                    color: "RED",
+                    color: "WHITE",
                     title: "❌ Error | Voice Channel",
                     description: "You're not join in voice channel, make sure you join to voice channel first to use this feature."
                 }],
@@ -218,7 +218,7 @@ export default class MusicHandler {
         if (player && member.voice.channel.id !== player.voiceChannel) {
             interaction.reply({
                 embeds: [{
-                    color: "RED",
+                    color: "WHITE",
                     title: "❌ Error | Voice Channel",
                     description: `You must join the same voice channel as me before request a message at <#${player.voiceChannel}>`
                 }],
@@ -232,7 +232,7 @@ export default class MusicHandler {
             if (!player || !player.queue || !player.queue.current) {
                 interaction.reply({
                     embeds: [{
-                        color: "RED",
+                        color: "WHITE",
                         title: "❌ Error | Player Manager",
                         description: `There is no queue or music playing here.`
                     }],
@@ -410,7 +410,7 @@ export default class MusicHandler {
             if (player && member.voice.channel.id !== player.voiceChannel) {
                 interaction.reply({
                     embeds: [{
-                        color: "RED",
+                        color: "WHITE",
                         title: "❌ Error | Voice Channel",
                         description: `You must join the same voice channel as me before request a message at <#${player.voiceChannel}>`
                     }],
@@ -492,7 +492,7 @@ export default class MusicHandler {
             if (!player || !player.queue || !player.queue.current) {
                 select.reply({
                     embeds: [{
-                        color: "RED",
+                        color: "WHITE",
                         title: "❌ Error | Player Manager",
                         description: `There is no queue or music playing here.`
                     }],
