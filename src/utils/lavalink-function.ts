@@ -7,21 +7,21 @@ export async function button(client: DiscordClient, guild: string) {
     const player = client.manager?.players.get(guild);
     const skip = new MessageButton()
     .setLabel(`⏭`)
-    .setStyle('PRIMARY')
+    .setStyle('SECONDARY')
     .setDisabled(!player?.playing)
     .setCustomId(`${client.user?.id}-btn-next`)
     const pauseButton = new MessageButton()
     .setLabel(`⏯`)
-    .setStyle(`PRIMARY`)
+    .setStyle(`SECONDARY`)
     .setCustomId(`${client.user?.id}-btn-pause`)
     const stopButton = new MessageButton()
     .setLabel('⏹️')
-    .setStyle("DANGER")
+    .setStyle("SECONDARY")
     .setCustomId(`${client.user?.id}-btn-leave`);
     const repeatButton = new MessageButton()
     .setLabel("🔂")
     .setDisabled(!player?.playing)
-    .setStyle("PRIMARY")
+    .setStyle("SECONDARY")
     .setCustomId(`${client.user?.id}-btn-controls`);
 
     const row1 = new MessageActionRow().addComponents(
@@ -32,16 +32,16 @@ export async function button(client: DiscordClient, guild: string) {
     );
     const queueButton = new MessageButton()
     .setLabel("📜")
-    .setStyle("PRIMARY")
+    .setStyle("SECONDARY")
     .setCustomId(`${client.user?.id}-btn-queue`);
     const mixButton = new MessageButton()
     .setLabel("🎛️")
     .setDisabled(!player?.playing)
-    .setStyle("PRIMARY")
+    .setStyle("SECONDARY")
     .setCustomId(`${client.user?.id}-btn-mix`);
     const controlsButton = new MessageButton()
     .setLabel("🔂")
-    .setStyle("PRIMARY")
+    .setStyle("SECONDARY")
     .setDisabled(!player?.playing)
     .setCustomId(`${client.user?.id}-btn-repeat`);
 
@@ -117,17 +117,17 @@ export async function queue(interaction: ButtonInteraction, client: DiscordClien
                 const forward = new MessageButton()
                 .setCustomId(`${client.user?.id}-btn-forward`)
                 .setEmoji("⏭️")
-                .setStyle("PRIMARY")
+                .setStyle("SECONDARY")
     
                 const backward = new MessageButton()
                 .setCustomId(`${client.user?.id}-btn-backward`)
                 .setEmoji("⏮️")
-                .setStyle("PRIMARY")
+                .setStyle("SECONDARY")
     
                 const end = new MessageButton()
                 .setCustomId(`${client.user?.id}-btn-end`)
                 .setEmoji("⏹️")
-                .setStyle("DANGER")
+                .setStyle("SECONDARY")
     
                 const row1 = new MessageActionRow().addComponents([ backward, end, forward ]);
                 const msg = await interaction.channel?.send({ embeds: [embed], components: [row1] }).catch(() => {});
@@ -251,15 +251,15 @@ export function generateEmbed(client: DiscordClient, guildId: string, leave?: bo
             }
         }));
 
-        let skip = new MessageButton().setStyle("PRIMARY").setCustomId(`${client.user?.id}-btn-ch-skip`).setEmoji(`⏭`).setDisabled()
-        let stop = new MessageButton().setStyle("DANGER").setCustomId(`${client.user?.id}-btn-ch-stop`).setEmoji(`⏹`).setDisabled()
-        let pause = new MessageButton().setStyle("PRIMARY").setCustomId(`${client.user?.id}-btn-ch-pauses`).setEmoji('⏯').setDisabled()
-        let shuffle = new MessageButton().setStyle("PRIMARY").setCustomId(`${client.user?.id}-btn-ch-shuffle`).setEmoji('🔀').setDisabled()
+        let skip = new MessageButton().setStyle("SECONDARY").setCustomId(`${client.user?.id}-btn-ch-skip`).setEmoji(`⏭`).setDisabled()
+        let stop = new MessageButton().setStyle("SECONDARY").setCustomId(`${client.user?.id}-btn-ch-stop`).setEmoji(`⏹`).setDisabled()
+        let pause = new MessageButton().setStyle("SECONDARY").setCustomId(`${client.user?.id}-btn-ch-pauses`).setEmoji('⏯').setDisabled()
+        let shuffle = new MessageButton().setStyle("SECONDARY").setCustomId(`${client.user?.id}-btn-ch-shuffle`).setEmoji('🔀').setDisabled()
 
-        let repeats = new MessageButton().setStyle("PRIMARY").setCustomId(`${client.user?.id}-btn-ch-repeats`).setEmoji(`🔁`).setDisabled()
-        let repeatq = new MessageButton().setStyle("PRIMARY").setCustomId(`${client.user?.id}-btn-ch-repeatq`).setEmoji(`🔂`).setDisabled()
-        let forward = new MessageButton().setStyle("PRIMARY").setCustomId(`${client.user?.id}-btn-ch-forward`).setEmoji('⏩').setDisabled()
-        let rewind = new MessageButton().setStyle("PRIMARY").setCustomId(`${client.user?.id}-btn-ch-rewind`).setEmoji('⏪').setDisabled()
+        let repeats = new MessageButton().setStyle("SECONDARY").setCustomId(`${client.user?.id}-btn-ch-repeats`).setEmoji(`🔁`).setDisabled()
+        let repeatq = new MessageButton().setStyle("SECONDARY").setCustomId(`${client.user?.id}-btn-ch-repeatq`).setEmoji(`🔂`).setDisabled()
+        let forward = new MessageButton().setStyle("SECONDARY").setCustomId(`${client.user?.id}-btn-ch-forward`).setEmoji('⏩').setDisabled()
+        let rewind = new MessageButton().setStyle("SECONDARY").setCustomId(`${client.user?.id}-btn-ch-rewind`).setEmoji('⏪').setDisabled()
 
 
     if (!leave && player && player.queue && player.queue.current) {
@@ -327,16 +327,16 @@ export function generateSetup(message: Message, client: DiscordClient) {
             filterMenu
         ]),
         new MessageActionRow().addComponents([
-            new MessageButton().setStyle("PRIMARY").setCustomId(`${client.user?.id}-btn-ch-skip`).setEmoji(`⏭`).setDisabled(),
-            new MessageButton().setStyle("DANGER").setCustomId(`${client.user?.id}-btn-ch-stop`).setEmoji(`⏹`).setDisabled(),
-            new MessageButton().setStyle("PRIMARY").setCustomId(`${client.user?.id}-btn-ch-pauses`).setEmoji('⏯').setDisabled(),
-            new MessageButton().setStyle("PRIMARY").setCustomId(`${client.user?.id}-btn-ch-shuffle`).setEmoji('🔀').setDisabled(),
+            new MessageButton().setStyle("SECONDARY").setCustomId(`${client.user?.id}-btn-ch-skip`).setEmoji(`⏭`).setDisabled(),
+            new MessageButton().setStyle("SECONDARY").setCustomId(`${client.user?.id}-btn-ch-stop`).setEmoji(`⏹`).setDisabled(),
+            new MessageButton().setStyle("SECONDARY").setCustomId(`${client.user?.id}-btn-ch-pauses`).setEmoji('⏯').setDisabled(),
+            new MessageButton().setStyle("SECONDARY").setCustomId(`${client.user?.id}-btn-ch-shuffle`).setEmoji('🔀').setDisabled(),
         ]),
         new MessageActionRow().addComponents([
-            new MessageButton().setStyle("PRIMARY").setCustomId(`${client.user?.id}-btn-ch-repeats`).setEmoji(`🔁`).setDisabled(),
-            new MessageButton().setStyle("PRIMARY").setCustomId(`${client.user?.id}-btn-ch-repeatq`).setEmoji(`🔂`).setDisabled(),
-            new MessageButton().setStyle("PRIMARY").setCustomId(`${client.user?.id}-btn-ch-forward`).setEmoji('⏩').setDisabled(),
-            new MessageButton().setStyle("PRIMARY").setCustomId(`${client.user?.id}-btn-ch-rewind`).setEmoji('⏪').setDisabled()
+            new MessageButton().setStyle("SECONDARY").setCustomId(`${client.user?.id}-btn-ch-repeats`).setEmoji(`🔁`).setDisabled(),
+            new MessageButton().setStyle("SECONDARY").setCustomId(`${client.user?.id}-btn-ch-repeatq`).setEmoji(`🔂`).setDisabled(),
+            new MessageButton().setStyle("SECONDARY").setCustomId(`${client.user?.id}-btn-ch-forward`).setEmoji('⏩').setDisabled(),
+            new MessageButton().setStyle("SECONDARY").setCustomId(`${client.user?.id}-btn-ch-rewind`).setEmoji('⏪').setDisabled()
         ]),
     ]
 
