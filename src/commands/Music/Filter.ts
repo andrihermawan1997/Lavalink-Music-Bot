@@ -18,8 +18,9 @@ export default class Filter extends Command {
         if (!args[0]) {
             const embed = new MessageEmbed()
             .setColor("WHITE")
-            .setDescription("\` 1. \` **Party**\n\` 2. \` **Bass**\n\` 3. \` **Radio**\n\` 4. \` **Pop**\n\` 5. \` **Trablebass**\n\` 6. \` **Soft**\n\` 7. \` **Custom**\n\` 8. \`**Off**\n\nUsage: h,filter bass")
-            .setFooter("")
+            .setAuthor({ name: "🎛 Equalizer" })
+            .setDescription("\` 1. \` **Party**\n\` 2. \` **Bass**\n\` 3. \` **Radio**\n\` 4. \` **Pop**\n\` 5. \` **Trablebass**\n\` 6. \` **Soft**\n\` 7. \` **Custom**\n\` 8. \`**Off**")
+            .setFooter("Usage: h,filter bass")
             message.channel.send({ embeds: [embed] });
             return;
         }
