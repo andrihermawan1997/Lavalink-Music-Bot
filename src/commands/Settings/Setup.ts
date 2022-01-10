@@ -25,7 +25,7 @@ export default class SetupCommand extends Command {
 
         if (!channel) {
             const embed = new MessageEmbed()
-            .setColor("RED")
+            .setColor("WHITE")
             .setAuthor({ name: "❌ Error | Missing Channel" })
             .setDescription("Please mention the channel to complete the setup!")
             message.channel.send({ embeds: [embed] });
@@ -42,7 +42,7 @@ export default class SetupCommand extends Command {
             });
             iMusic.save();
             const embed = new MessageEmbed()
-            .setColor("GREEN")
+            .setColor("WHITE")
             .setAuthor({ name: "✅ Success | Music Setup" })
             .setDescription(`Setting up music has done, and you can use me for your personal music provider for free at ${channel}.`)
             message.channel.send({ embeds: [embed] });
@@ -58,7 +58,7 @@ export default class SetupCommand extends Command {
                 iMusic?.save();
                 
                 const embed = new MessageEmbed()
-                .setColor("GREEN")
+                .setColor("WHITE")
                 .setAuthor({ name: "✅ Success | Music Setup" })
                 .setDescription(`Setting up music has done, and you can use me for your personal music provider for free at ${channel}.`)
                 message.channel.send({ embeds: [embed] });
@@ -69,7 +69,7 @@ export default class SetupCommand extends Command {
                 }
     
                 const embed = new MessageEmbed()
-                .setColor("RED")
+                .setColor("WHITE")
                 .setAuthor({ name: "⏰ Waiting | Please Wait" })
                 .setDescription(`Please wait, let me deleting the message at ${channel} and send the new one.`)
                 const m = await message.channel.send({ embeds: [embed] });
@@ -81,7 +81,7 @@ export default class SetupCommand extends Command {
                     const iMusic = await getAndUpdate("IMusic", { guildId: message.guild?.id, channelId: channel.id, musicId: msg.id });
                     iMusic?.save();
         
-                    embed.setColor("GREEN")
+                    embed.setColor("WHITE")
                     embed.setAuthor({ name: "✅ Success | Music Setup" })
                     embed.setDescription(`Setting up music has done, and you can use me for your personal music provider for free at ${channel}.`)
                     m.edit({ embeds: [embed] });
