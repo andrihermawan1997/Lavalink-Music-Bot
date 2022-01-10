@@ -5,20 +5,20 @@ import { LogType } from "../utils/logger-types";
 
 export default class Logger {
     static log(type: LogType, message: string, space = false, format = "DD/MM/YYY HH:mm:ss") {
-        let color: "WHITE" | "WHITE" | "WHITE" | "WHITE";
+        let color: "green" | "yellow" | "red" | "blue";
 
         switch (type) {
             case "SUCCESS":
-                color = "WHITE";
+                color = "green";
                 break;
             case "WARNING":
-                color = "WHITE";
+                color = "yellow";
                 break;
             case "ERROR":
-                color = "WHITE";
+                color = "red";
                 break;
             case "INFO":
-                color = "WHITE";
+                color = "blue";
         }
 
         console.log(`${space ? "\n" : ""}${chalk.magenta(`${moment().format(format)}`)} ${chalk[color].bold(`${type}`)} ${message}${space ? "\n" : ""}`);
