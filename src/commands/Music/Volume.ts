@@ -32,10 +32,10 @@ export default class Volume extends Command {
         const player = this.client.manager?.players.get(message.guildId as string);
         if (!player) return message.channel.send(`There is no music play at this server!`);
         player?.setVolume(vol);
-
-        return message.channel.send({ embeds: {
-            color: "WHITE",
-            description: `Volume set to: \`${vol}\`%`
-        }})
+        const embed = new MessageEmbed()
+        .setColor("WHITE")
+        .setDescription(`Volume set to: \`${vol}\`%`)
+        message.channel.send({ embeds: [embed] });
+        return;
     }
 }
