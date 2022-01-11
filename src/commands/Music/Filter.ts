@@ -43,7 +43,7 @@ export default class Filter extends Command {
         .setColor(`WHITE`)
         .setTimestamp()
 
-        if (args[0] == 'party') {
+        if (args[0] == 'party' || args[0] == 'Party') {
             var bands = [
                 { band: 0, gain: -1.16 },
                 { band: 1, gain: 0.28 },
@@ -57,7 +57,7 @@ export default class Filter extends Command {
             ];
             thing.setDescription(`Party mode is ON`);
             player.setEQ(...bands);
-        } else if (args[0] == 'bass') {
+        } else if (args[0] == 'bass' || args[0] == 'Bass') {
             var bands = [
                 { band: 0, gain: 0.6 },
                 { band: 1, gain: 0.7 },
@@ -77,7 +77,7 @@ export default class Filter extends Command {
             ];
             thing.setDescription(`Bass mode is ON`);
             player.setEQ(...bands);
-        } else if (args[0] == 'radio') {
+        } else if (args[0] == 'radio' || args[0] == 'Radio') {
             var bands = [
                 { band: 0, gain: 0.65 },
                 { band: 1, gain: 0.45 },
@@ -97,7 +97,7 @@ export default class Filter extends Command {
             ];
             thing.setDescription(`Radio mode is ON`);
             player.setEQ(...bands);
-        } else if (args[0] == 'pop') {
+        } else if (args[0] == 'pop' || args[0] == 'Pop') {
             var bands = [
                 { band: 0, gain: -0.25 },
                 { band: 1, gain: 0.48 },
@@ -117,7 +117,7 @@ export default class Filter extends Command {
             ];
             thing.setDescription(`Pop mode is ON`);
             player.setEQ(...bands);
-        } else if (args[0] == 'trablebass') {
+        } else if (args[0] == 'trablebass' || args[0] == 'Trablebass') {
             var bands = [
                 { band: 0, gain: 0.6 },
                 { band: 1, gain: 0.67 },
@@ -143,7 +143,7 @@ export default class Filter extends Command {
             ));
             thing.setDescription(`Bassboost mode is ON`);
             player.setEQ(...bands);
-        } else if (args[0] == 'soft') {
+        } else if (args[0] == 'soft' || args[0] == 'Soft') {
             var bands =  [
                 { band: 0, gain: 0 },
                 { band: 1, gain: 0 },
@@ -163,7 +163,7 @@ export default class Filter extends Command {
             ];
             thing.setDescription(`Soft mode is ON`);
             player.setEQ(...bands);
-        } else if (args[0] == 'custom') {
+        } else if (args[0] == 'custom' || args[0] == 'Custom') {
             var band = [
                 { band: 0, gain: args[1] },
                 { band: 1, gain: args[2] },
